@@ -11,6 +11,7 @@ import {SurveyService} from '../survey/service/survey.service';
 export class QuizComponent implements OnInit {
   question: string;
   questionIndex = 1;
+  private index = 0;
   answer: string;
   minutes = 0;
   seconds = 0;
@@ -20,6 +21,8 @@ export class QuizComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.dataService.survey.quiz);
+    this.question = this.dataService.survey.quiz.questions[this.index].question;
     this.id = setInterval(() => {
       this.seconds++;
       if (this.minutes === 3) {
@@ -47,6 +50,7 @@ export class QuizComponent implements OnInit {
       this.questionIndex++;
       this.dataService.answers.push(this.answer);
       this.answer = '';
+      this.question = this.dataService.survey.quiz.questions[++this.index].question;
     }
   }
 

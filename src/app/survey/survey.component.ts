@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Survey} from './survey';
 import {SurveyService} from './service/survey.service';
 import {QuizDataService} from '../quiz/service/quiz.data.service';
@@ -25,7 +25,7 @@ export class SurveyComponent implements OnInit {
     });
   }
 
-  setSurvey(survey: Survey){
+  setSurvey(survey: Survey) {
     this.dataService.survey = survey;
   }
 }
